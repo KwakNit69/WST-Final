@@ -1,0 +1,62 @@
+<div class="bio-container" *ngIf="president">
+  <header class="hero">
+    <div class="portrait-wrapper">
+      <img [src]="'/' + president.image" class="portrait">
+    </div>
+    <div class="hero-content">
+      <span class="rank-tag">{{ president.rank }} PRESIDENT OF THE PHILIPPINES</span>
+      <h1>{{ president.name }}</h1>
+      <p class="tagline">"{{ president.monicker }}"</p>
+      
+      <div class="pill-container">
+        <div class="info-pill">
+          <span class="icon">📅</span>
+          <div><small>TERM DATES</small><p>{{ president.term }}</p></div>
+        </div>
+        <div class="info-pill">
+          <span class="icon">👥</span>
+          <div><small>POLITICAL PARTY</small><p>{{ president.party }}</p></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout-grid">
+    <main class="left-col">
+      <section>
+        <h2>📜 Life and Career</h2>
+        <p class="bio-body">{{ president.lifeAndCareer }}</p>
+      </section>
+
+      <section>
+        <h2>🎯 Key Achievements</h2>
+        <div class="achievements-grid">
+          <div class="a-card" *ngFor="let a of president.achievements">
+            <h3>{{ a.title }}</h3>
+            <p>{{ a.desc }}</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="right-col">
+      <div class="side-card facts">
+        <h3>Quick Facts</h3>
+        <div class="fact-row"><small>BORN</small><p>{{ president.birth }}</p></div>
+        <div class="fact-row"><small>DIED</small><p>{{ president.death }}</p></div>
+        <div class="fact-row"><small>RESTING PLACE</small><p>{{ president.restingPlace }}</p></div>
+        <div class="fact-row"><small>SPOUSE</small><p>{{ president.spouse }}</p></div>
+        <div class="fact-row"><small>EDUCATION</small><p>{{ president.education }}</p></div>
+      </div>
+
+      <div class="side-card quote">
+        <p>"{{ president.quote }}"</p>
+      </div>
+
+      <div class="doc-card">
+        <p>View Documents</p>
+        <button class="archive-btn">Digital Archive</button>
+      </div>
+    </aside>
+  </div>
+</div>

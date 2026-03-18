@@ -1,0 +1,54 @@
+<div class="about-wrapper">
+  
+  <section class="about-hero">
+    <div class="overlay">
+      <span class="badge">ESTABLISHED 1937</span>
+      <h1>Preserving the Legacy <br> of Leadership</h1>
+      <p>The definitive repository for the history, documents, and records of the Philippine Presidency.</p>
+    </div>
+  </section>
+
+  <section class="mission-section">
+    <div class="mission-grid">
+      <div class="mission-text">
+        <span class="sub-label">OUR MISSION</span>
+        <h2>Safeguarding Philippine Presidential History</h2>
+        <p>The Malacañang Archive serves as the primary custodian for the presidential records, personal papers, and historical artifacts of the Presidents of the Philippines...</p>
+      </div>
+      <div class="mission-images">
+        <div class="img-box large"></div> <div class="img-box small"></div> </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <span class="sub-label center">THE JOURNEY</span>
+    <h2 class="center">Our Story Through Time</h2>
+    
+    <div class="timeline-container">
+      @for (item of timeline; track item.year) {
+        <div class="timeline-item">
+          <div class="year">{{ item.year }}</div>
+          <div class="details">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="team-section">
+    <span class="sub-label center">CORE LEADERSHIP</span>
+    <h2 class="center">The Team</h2>
+    
+    <div class="team-grid">
+      @for (person of team; track person.name) {
+        <div class="team-card">
+          <div class="team-photo"></div> <h3>{{ person.name }}</h3>
+          <p class="role">{{ person.role }}</p>
+        </div>
+      }
+    </div>
+  </section>
+
+</div>

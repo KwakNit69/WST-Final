@@ -1,0 +1,46 @@
+<div class="dashboard-wrapper">
+
+  <header class="dashboard-header">
+    <h1>The Presidents <br> of the Philippines</h1>
+    <p class="subtitle">
+      Explore the legacies of the sixteen leaders who have shaped the history of the Republic, from the revolutionary days of 1899 to the present day.
+    </p>
+  </header>
+
+  <section class="controls-bar">
+    <div class="search-container">
+      <i class="search-icon">🔍</i>
+      <input type="text" placeholder="Search by name, era, or party...">
+    </div>
+    
+    <div class="filter-group">
+      <button class="filter-btn">ALL ERAS ▼</button>
+      <button class="filter-btn">POLITICAL PARTY ▼</button>
+      <button class="filter-btn">SORT: CHRONOLOGICAL ▼</button>
+    </div>
+  </section>
+
+<main class="portrait-grid">
+  <div 
+    *ngFor="let president of presidents" 
+    class="portrait-card" 
+    [routerLink]="['/biography', president.id]" 
+    style="cursor: pointer;">
+    
+    <img [src]="'/' + president.image" [alt]="president.name" class="portrait-image">
+    
+    <div class="card" [routerLink]="['/biography', president.id]">
+      <span class="era-tag">{{ president.era }}</span>
+      <h2 class="president-name">{{ president.name }}</h2>
+      <p class="service-years">{{ president.years }}</p>
+      <span class="republic-detail">{{ president.republic }}</span>
+    </div>
+  </div>
+</main>
+
+  <footer class="view-footer">
+    <button class="view-all-btn">View Full Timeline</button>
+    
+  </footer>
+
+</div>
