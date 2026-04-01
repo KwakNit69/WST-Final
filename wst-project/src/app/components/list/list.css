@@ -1,45 +1,49 @@
+/* Better Background and Font Styling */
 .dashboard-wrapper {
-  background-color: #0b0c11; 
+  background-color: #08090d; /* Slightly darker for more contrast */
   color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 80px 10%;
+  padding: 80px 8%;
+  min-height: 100vh;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-
-.dashboard-header {
-  margin-bottom: 60px;
+/* Header Refinement */
+.gold-accent-line {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #c5a059;
+  margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 3.5rem;
-  font-family: 'Playfair Display', serif; 
-  font-weight: bold;
-  margin-bottom: 15px;
-  line-height: 1.1;
+  font-size: 4rem;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  color: #a0a4b8; 
-  max-width: 600px;
-  line-height: 1.6;
-}
-
+/* Controls Bar - More Modern */
 .controls-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Keep everything vertically centered */
   margin-bottom: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px 30px;
+  border-radius: 12px;
+  gap: 40px; /* Forces a gap between search and filters */
+}
+
+.search-container input {
+  background-color: #12141c;
+  border: 1px solid #222633;
+  border-radius: 8px;
+  transition: border-color 0.3s;
 }
 
 .search-container {
   position: relative;
-  width: 100%;
-  max-width: 450px;
+  flex: 1; /* This tells the search bar to take up all available space */
+  max-width: 500px; /* But don't let it get TOO wide */
 }
 
 .search-icon {
@@ -47,139 +51,117 @@ h1 {
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #515670;
+  color: #4361ee; /* Give the icon your accent color */
+  z-index: 2;
 }
 
 .search-container input {
   width: 100%;
-  padding: 15px 15px 15px 45px;
-  background-color: #1a1d27;
-  border: 1px solid #32374c;
-  border-radius: 4px;
+  padding: 14px 20px 14px 45px; /* 45px padding on the left makes room for the icon */
+  background-color: #12141c;
+  border: 1px solid #222633;
+  border-radius: 8px;
   color: white;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: #4361ee;
+  background-color: #1a1d27;
+  outline: none;
+  box-shadow: 0 0 15px rgba(67, 97, 238, 0.2);
 }
 
 .filter-group {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  white-space: nowrap; /* Prevents buttons from stacking vertically */
 }
 
-.filter-btn {
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid transparent;
-  padding: 10px 20px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-
-.filter-btn:hover {
-  color: #c5a059;
-}
-
-
+/* THE GRID - 4 columns, vertical portraits */
 .portrait-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-bottom: 80px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
 }
 
 .portrait-card {
-  background-color: #1a1d27;
-  border-radius: 8px;
+  background-color: #12141c;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.2s;
-  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .portrait-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-12px);
+  border-color: #c5a059;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Fix the Image Proportions */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 320px; /* Taller height looks more prestigious */
+  overflow: hidden;
 }
 
 .portrait-image {
   width: 100%;
-  height: 380px;
-  object-fit: cover;
-  display: block;
+  height: 100%;
+  object-fit: cover; /* This ensures faces aren't squished */
+  transition: transform 0.6s;
 }
 
-.card-info {
-  padding: 20px;
-  text-align: center;
+.portrait-card:hover .portrait-image {
+  transform: scale(1.08);
+}
+
+/* Hover Overlay */
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(67, 97, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hover-overlay span {
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border: 1px solid #fff;
+  padding: 8px 16px;
+}
+
+.portrait-card:hover .hover-overlay {
+  opacity: 1;
+}
+
+/* Text Details */
+.card-details {
+  padding: 25px;
+  text-align: left; /* Alignment left looks more "Library" style */
 }
 
 .era-tag {
-  display: inline-block;
-  background-color: #32374c;
-  color: #c5a059;
-  font-size: 0.7rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  background-color: #c5a059;
+  color: #000;
+  border-radius: 2px;
 }
 
 .president-name {
-  font-size: 1.1rem;
-  margin: 0 0 5px 0;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-family: 'Playfair Display', serif;
+  margin: 10px 0 5px;
 }
 
 .service-years {
-  font-size: 0.8rem;
-  color: #a0a4b8;
-  margin: 0;
-}
-
-.republic-detail {
-  font-size: 0.75rem;
-  color: #515670;
-  display: block;
-  margin-top: 10px;
-}
-
-/* --- View Footer and Pagination --- */
-.view-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.view-all-btn {
-  background-color: transparent;
-  color: #c5a059;
-  border: 1px solid #c5a059;
-  padding: 12px 30px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.pagination {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.page-num, .page-arrow {
-  background: transparent;
-  color: #a0a4b8;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-.page-num.active {
-  background-color: #4361ee;
-  color: white;
+  color: #4361ee; /* Use the blue for the dates to pop */
+  font-weight: 600;
 }

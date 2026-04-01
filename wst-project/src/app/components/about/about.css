@@ -1,73 +1,195 @@
 .about-wrapper {
   background-color: #0b0e14;
-  color: white;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png"); /* Subtle grain */
+  color: #e2e8f0;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
-/* Hero Styles */
+
 .about-hero {
   height: 60vh;
-  background-image: url('/assets/library-bg.jpg'); /* You will add this later */
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  background: linear-gradient(rgba(11, 14, 20, 0.7), rgba(11, 14, 20, 0.9)), 
+              url('/assets/library-bg.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.overlay {
-  background: rgba(11, 14, 20, 0.8);
-  padding: 40px;
+.about-hero h1 {
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  margin: 20px 0;
+}
+
+.badge {
+  color: #4361ee;
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+}
+
+
+.mission-section { padding: 100px 10%; }
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.mission-text h2 {
+  font-size: 2.8rem;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.mission-images {
+  position: relative;
+  height: 450px;
+}
+
+.img-box {
+  background: #161b22;
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.img-box.large {
+  width: 85%;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transform: rotate(-2deg);
+}
+
+.img-box.small {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  z-index: 2;
+  transform: rotate(4deg);
+  border: 6px solid #1c2128;
+}
+
+.img-box img {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  object-fit: cover;
+  filter: sepia(0.3) contrast(1.1); 
+  transition: transform 0.4s ease;
 }
 
-.about-hero h1 { font-size: 3.5rem; font-family: 'Playfair Display', serif; margin: 20px 0; }
-.badge { color: #4361ee; font-weight: bold; letter-spacing: 2px; }
+.img-box:hover img {
+  transform: scale(1.1) rotate(0deg);
+  filter: sepia(0);
+}
 
-/* Mission Grid */
-.mission-section { padding: 80px 10%; }
-.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.mission-images { position: relative; height: 400px; }
-.img-box { background: #1a1d27; border-radius: 8px; border: 1px solid #2d333b; }
-.img-box.large { width: 80%; height: 80%; }
-.img-box.small { width: 60%; height: 60%; position: absolute; bottom: 0; right: 0; transform: translate(10%, 10%); }
 
-/* Timeline Styles */
-.timeline-section { padding: 80px 20%; background: #0d1117; }
-.timeline-container { margin-top: 50px; }
-.timeline-item { 
-  display: flex; 
-  gap: 40px; 
-  margin-bottom: 40px; 
-  border-left: 2px solid #4361ee; 
-  padding-left: 30px; 
+.timeline-section { padding: 100px 15%; background: #0d1117; }
+
+.timeline-item {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 60px;
+  border-left: 2px solid #4361ee;
+  padding-left: 40px;
   position: relative;
 }
-.timeline-item::before { 
-  content: ''; 
-  position: absolute; 
-  left: -7px; 
-  top: 0; 
-  width: 12px; 
-  height: 12px; 
-  background: #4361ee; 
-  border-radius: 50%; 
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: #4361ee;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #4361ee;
 }
-.year { font-weight: bold; color: #4361ee; font-size: 1.5rem; flex: 0 0 100px; }
 
-/* Team Cards */
-.team-section { padding: 80px 10%; text-align: center; }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-.team-card { background: #161b22; padding: 20px; border-radius: 12px; border: 1px solid #21262d; }
-.team-photo { width: 100%; aspect-ratio: 1/1; background: #2d333b; border-radius: 8px; margin-bottom: 20px; }
+.year {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #4361ee;
+  font-family: 'Playfair Display', serif;
+}
 
-/* Global Utilities */
-.sub-label { color: #4361ee; font-weight: bold; letter-spacing: 1px; font-size: 0.8rem; display: block; margin-bottom: 10px; }
+
+.team-section { padding: 100px 10%; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.team-card {
+  background: #161b22;
+  padding: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  border: 1px solid #30363d;
+}
+
+.team-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.team-card:hover { transform: translateY(-10px); background: #1c2128; }
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  background: #30363d;
+  border-radius: 50%; 
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  border: 3px solid #4361ee; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.role {
+  color: #4361ee;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: top; 
+  display: block;
+}
+
+
+.sub-label {
+  color: #4361ee;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
 .center { text-align: center; }
-h2 { font-size: 2.5rem; font-family: 'Playfair Display', serif; margin-bottom: 20px; }

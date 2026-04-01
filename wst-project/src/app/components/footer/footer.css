@@ -1,0 +1,78 @@
+.site-footer {
+  background-color: #0b0e14; /* Deep dark background */
+  color: #8b949e;            /* Slate gray text color */
+  padding: 60px 8% 40px;
+  border-top: 1px solid #161b22;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr; /* First column is wider */
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Headers */
+.footer-column h3, 
+.footer-column h4 {
+  color: #ffffff;
+  margin-bottom: 25px;
+  font-family: 'Playfair Display', serif; /* Serif font for formal titles */
+  font-size: 1.2rem;
+}
+
+/* Mission Text */
+.brand-info p {
+  line-height: 1.8;
+  font-size: 0.95rem;
+  max-width: 400px;
+}
+
+/* Links Column */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #8b949e;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Contact Column */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.contact-item .icon {
+  font-size: 1.1rem;
+}
+
+/* Responsive: Stack columns on mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

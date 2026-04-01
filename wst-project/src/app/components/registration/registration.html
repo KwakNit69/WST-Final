@@ -1,0 +1,61 @@
+<div class="register-page">
+  <div class="register-card">
+    <header class="register-header">
+      <div class="mini-seal">🏛️</div>
+      <h1>Personnel Enrollment</h1>
+      <p>Secure access request for the Presidential Repository</p>
+    </header>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <div class="form-row">
+        <div class="input-group">
+          <label>FIRST NAME</label>
+          <input type="text" formControlName="firstName" placeholder="Juan">
+        </div>
+        <div class="input-group">
+          <label>LAST NAME</label>
+          <input type="text" formControlName="lastName" placeholder="Dela Cruz">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>INSTITUTIONAL EMAIL</label>
+        <div class="input-wrapper" [class.error]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <span class="prefix">@</span>
+          <input type="email" formControlName="email" placeholder="name@institution.gov.ph">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-group">
+          <label>DEPARTMENT</label>
+          <select formControlName="department">
+            <option value="National Archives">National Archives</option>
+            <option value="Historical Commission">Historical Commission</option>
+            <option value="IT Administration">IT Administration</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>EMPLOYEE / STUDENT ID</label>
+          <input type="text" formControlName="idNumber" placeholder="ID-2026-XXXX">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>CREATE ACCESS KEY</label>
+        <div class="input-wrapper">
+          <span class="prefix">🔒</span>
+          <input type="password" formControlName="password" placeholder="Min. 8 characters">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-register" [disabled]="registerForm.invalid">
+        Request Official Access 
+      </button>
+
+      <div class="login-redirect">
+        Already registered? <a routerLink="/login">Authorized Sign In</a>
+      </div>
+    </form>
+  </div>
+</div>

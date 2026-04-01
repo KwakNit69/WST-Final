@@ -1,0 +1,19 @@
+<header class="main-nav-bar">
+  <div class="nav-content">
+    <div class="brand-box" routerLink="/homepage" style="cursor: pointer;">
+      <span class="logo-symbol">🏛️</span>
+      <div class="brand-titles">
+        <span class="main-title">Presidential Archives</span>
+        <span class="sub-title">Republic of the Philippines</span>
+      </div>
+    </div>
+
+    <nav class="links-container">
+      <a routerLink="/homepage" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/list" routerLinkActive="active-link">Presidents</a>
+      <a routerLink="/about" routerLinkActive="active-link">About Us</a>
+      <a routerLink="/digital-archive" routerLinkActive="active-link">Digital Archive</a>
+      <a routerLink="/timeline" routerLinkActive="active-link">Timeline</a>
+    </nav>
+  </div>
+</header>

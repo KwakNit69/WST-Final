@@ -1,0 +1,51 @@
+.main-nav-bar {
+  background-color: #0b0e14;
+  border-bottom: 1px solid #21262d;
+  padding: 1rem 6%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Makes the header slightly glass-like */
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.brand-box { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.main-title { display: block; font-weight: 700; color: #ffffff; font-size: 1.15rem; }
+.sub-title { font-size: 0.65rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1.5px; }
+
+.links-container a {
+  color: #8b949e;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.links-container a:hover, .active-link {
+  color: #4361ee !important; /* Electric Blue accent */
+  font-weight: 600;
+}
+
+.search-input-group {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 20px;
+  padding: 4px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-group input {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 5px;
+  outline: none;
+}

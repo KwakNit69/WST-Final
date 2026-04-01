@@ -1,46 +1,40 @@
 <div class="dashboard-wrapper">
 
   <header class="dashboard-header">
+    <span class="gold-accent-line"></span>
     <h1>The Presidents <br> of the Philippines</h1>
     <p class="subtitle">
-      Explore the legacies of the sixteen leaders who have shaped the history of the Republic, from the revolutionary days of 1899 to the present day.
+      Explore the legacies of the leaders who shaped the Republic, from the revolutionary days of 1899 to the present.
     </p>
   </header>
 
   <section class="controls-bar">
     <div class="search-container">
-      <i class="search-icon">🔍</i>
+      <span class="search-icon">🔍</span>
       <input type="text" placeholder="Search by name, era, or party...">
     </div>
-    
-    <div class="filter-group">
-      <button class="filter-btn">ALL ERAS ▼</button>
-      <button class="filter-btn">POLITICAL PARTY ▼</button>
-      <button class="filter-btn">SORT: CHRONOLOGICAL ▼</button>
-    </div>
+
   </section>
 
-<main class="portrait-grid">
-  <div 
-    *ngFor="let president of presidents" 
-    class="portrait-card" 
-    [routerLink]="['/biography', president.id]" 
-    style="cursor: pointer;">
-    
-    <img [src]="'/' + president.image" [alt]="president.name" class="portrait-image">
-    
-    <div class="card" [routerLink]="['/biography', president.id]">
-      <span class="era-tag">{{ president.era }}</span>
-      <h2 class="president-name">{{ president.name }}</h2>
-      <p class="service-years">{{ president.years }}</p>
-      <span class="republic-detail">{{ president.republic }}</span>
+  <main class="portrait-grid">
+    <div 
+      *ngFor="let president of presidents" 
+      class="portrait-card" 
+      [routerLink]="['/biography', president.id]">
+      
+      <div class="image-wrapper">
+        <img [src]="'/' + president.image" [alt]="president.name" class="portrait-image">
+        <div class="hover-overlay">
+          <span>VIEW BIOGRAPHY →</span>
+        </div>
+      </div>
+      
+      <div class="card-details">
+        <span class="era-tag">{{ president.era }}</span>
+        <h2 class="president-name">{{ president.name }}</h2>
+        <p class="service-years">{{ president.years }}</p>
+        <span class="republic-detail">{{ president.republic }}</span>
+      </div>
     </div>
-  </div>
-</main>
-
-  <footer class="view-footer">
-    <button class="view-all-btn">View Full Timeline</button>
-    
-  </footer>
-
+  </main>
 </div>

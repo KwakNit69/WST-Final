@@ -19,8 +19,8 @@ export class AboutComponent {
 
   // Data for the Team Section
   team = [
-    { name: 'Dr. Antonio Valdez', role: 'Chief Curator', image: '' },
-    { name: 'Elena Cruz', role: 'Lead Historian', image: '' },
-    { name: 'Mark Rivera', role: 'Digital Archivist', image: '' }
+    { name: 'Light Yagami', role: 'Chief Curator', image: 'light.jpg' },
+    { name: 'Senku Ishigami', role: 'Lead Historian', image: 'Senku ishigami.jpg' },
+    { name: 'Kiyotaka Ayanokoji', role: 'Digital Archivist', image: 'ayanokouji.jpg' }
   ];
 }

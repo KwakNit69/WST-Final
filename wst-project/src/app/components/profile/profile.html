@@ -1,0 +1,35 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="card-header">
+      <div class="id-badge">OFFICIAL ACCESS</div>
+      <div class="profile-avatar">
+        <img src="https://i.pravatar.cc/150?u=account" alt="User Avatar">
+      </div>
+    </div>
+
+    <div class="card-body">
+      <h1 class="user-name">{{ currentUser?.firstName }} {{ currentUser?.lastName }}</h1>
+      <p class="user-dept">{{ currentUser?.department || 'National Archives' }}</p>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <label>INSTITUTIONAL ID</label>
+          <span>{{ currentUser?.idNumber || 'PENDING-000' }}</span>
+        </div>
+        <div class="info-item">
+          <label>EMAIL ADDRESS</label>
+          <span>{{ currentUser?.email }}</span>
+        </div>
+        <div class="info-item">
+          <label>CLEARANCE LEVEL</label>
+          <span class="clearance">LEVEL 1 - ARCHIVIST</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-edit">Update Credentials</button>
+        <button class="btn-logout" (click)="logout()">Terminate Session</button>
+      </div>
+    </div>
+  </div>
+</div>

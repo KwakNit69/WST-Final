@@ -1,65 +1,64 @@
-<div class="login-screen">
+<div class="login-page">
   <div class="login-card">
-    
-    <div class="logo-container">
-      <div class="logo-circle">
-        <span class="pillar">IIII</span>
-      </div>
+    <div class="seal-container">
+      <div class="official-seal">🏛️</div>
     </div>
 
-    <header class="card-header">
+    <header class="login-header">
       <h1>Malacañang Archive</h1>
-      <p class="tagline">Preserving the National Identity of the Filipino People</p>
+      <p class="tagline">Digital Repository of the Philippine Presidency</p>
     </header>
 
-    <form class="login-form">
-      <div class="form-group">
-        <div class="label-row">
-          <label>EMAIL</label>
-          <span class="shield-icon">🛡️</span>
-        </div>
-        <div class="input-wrapper">
-          <span class="prefix">@</span>
-          <input type="text" name="username" [(ngModel)]="username" placeholder="name@institution.gov.ph">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="label-row">
-          <label>PASSWORD</label>
-          <a href="#" class="forgot-link">Forgot Access?</a>
-        </div>
-        <div class="input-wrapper">
-          <span class="prefix">🔒</span>
-          <input type="password" name="password" [(ngModel)]="password" placeholder="••••••••">
-        </div>
-      </div>
-
-      <p class="error-text" *ngIf="errorMsg">{{ errorMsg }}</p>
-
-      <button type="button" class="submit-btn" (click)="onLogin()">
-        Access Archive <span class="unlock-icon">🔓</span>
-      </button>
-    </form>
-
-    <footer class="card-footer">
-      <div class="divider"></div>
-      <p class="restriction-notice">This is a restricted government system.</p>
-      <p class="law-notice">Unauthorized access is subject to Republic Act No. 8293.</p>
-      
-      <div class="support-links">
-        <a href="#"><span class="info-icon">ⓘ</span> Technical Support</a>
-        <a href="#"><span class="info-icon">🛡️</span> Data Privacy</a>
-      </div>
-    </footer>
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  
+  <div class="input-group">
+    <label for="email">INSTITUTIONAL EMAIL</label>
+    <div class="input-wrapper">
+      <span class="prefix">@</span>
+      <input 
+        id="email"
+        type="email" 
+        name="email"
+        formControlName="email" 
+        placeholder="name@institution.gov.ph">
+    </div>
   </div>
 
-  <div class="status-bar">
-    <div class="status-left">
-      <span class="dot"></span> SYSTEM ONLINE
+  <div class="input-group">
+    <div class="label-row">
+      <label for="password">ACCESS KEY</label>
+      <a href="#" class="forgot-link">Forgot Access?</a>
     </div>
-    <div class="status-right">
-      V4.2.1-ARCHIVE
+    <div class="input-wrapper">
+      <span class="prefix">🔒</span>
+      <input 
+        id="password"
+        type="password" 
+        name="password"
+        formControlName="password" 
+        placeholder="••••••••">
     </div>
+  </div>
+
+  <button type="submit" class="btn-access" [disabled]="loginForm.invalid">
+    Access Archive 🔓
+  </button>
+
+  <div class="auth-footer">
+    <p>First time here? 
+      <a routerLink="/register" class="register-link">Request Enrollment</a>
+    </p>
+  </div>
+</form>
+
+    <footer class="login-footer">
+      <p class="warning-text">
+        RESTRICTED GOVERNMENT SYSTEM. Unauthorized access is subject to Republic Act No. 8293 and the Data Privacy Act of 2012.
+      </p>
+      <div class="footer-links">
+        <a href="#">Technical Support</a>
+        <a href="#">Data Privacy</a>
+      </div>
+    </footer>
   </div>
 </div>

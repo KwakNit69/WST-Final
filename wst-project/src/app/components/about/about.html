@@ -13,10 +13,20 @@
       <div class="mission-text">
         <span class="sub-label">OUR MISSION</span>
         <h2>Safeguarding Philippine Presidential History</h2>
-        <p>The Malacañang Archive serves as the primary custodian for the presidential records, personal papers, and historical artifacts of the Presidents of the Philippines...</p>
+        <p>The Malacañang Archive serves as the primary custodian for the presidential records, personal papers, and historical artifacts of the Presidents of the Philippines. We ensure that the narrative of national leadership remains accessible for future generations of Filipinos.</p>
       </div>
+
       <div class="mission-images">
-        <div class="img-box large"></div> <div class="img-box small"></div> </div>
+        <div class="img-box large">
+          <img src="/letter.jpg" alt="Historical Letter">
+          <div class="image-overlay"></div>
+        </div>
+
+        <div class="img-box small">
+          <img src="/flag.jpg" alt="Philippine Flag Artifact">
+          <div class="image-overlay"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -41,14 +51,21 @@
     <span class="sub-label center">CORE LEADERSHIP</span>
     <h2 class="center">The Team</h2>
     
-    <div class="team-grid">
-      @for (person of team; track person.name) {
-        <div class="team-card">
-          <div class="team-photo"></div> <h3>{{ person.name }}</h3>
-          <p class="role">{{ person.role }}</p>
-        </div>
-      }
+<div class="team-grid">
+  @for (person of team; track person.name) {
+    <div class="team-card">
+      <div class="team-photo">
+        @if (person.image) {
+          <img [src]="person.image" [alt]="person.name" class="member-img">
+        } @else {
+          <div class="photo-placeholder">👤</div>
+        }
+      </div>
+      <h3>{{ person.name }}</h3>
+      <p class="role">{{ person.role }}</p>
     </div>
+  }
+</div>
   </section>
 
 </div>
