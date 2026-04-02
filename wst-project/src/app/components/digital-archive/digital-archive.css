@@ -1,92 +1,145 @@
+/* --- Global Component Styles --- */
 :host {
   display: block;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Playfair Display', 'Segoe UI', serif;
 }
 
-.card-container {
-  width: 320px;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  overflow: hidden;
+/* --- Main Page Container --- */
+.archive-container {
+  background-color: #121212; /* Dark Archival Background */
+  padding: 60px 20px;
+  color: #ffffff; /* Global text color */
+  min-height: 100vh;
+}
+
+.archive-header {
   text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease;
+  margin-bottom: 50px;
 }
 
-.card-container:hover {
-  transform: translateY(-5px);
+.tagline {
+  color: #c5a059;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.profile-header {
-  position: relative;
-  display: inline-block;
+.archive-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #ffffff;
 }
 
-.profile-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 4px solid #f0f2f5;
-  object-fit: cover;
+/* --- The 3xN Grid Layout --- */
+.document-grid {
+  display: grid;
+  /* Creates exactly 3 columns on desktop */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.status-indicator {
-  position: absolute;
-  bottom: 10px;
-  right: 5px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-.online { background-color: #4caf50; }
-
-.role {
-  color: #666;
-  font-weight: 600;
-  margin-top: -10px;
-}
-
-.bio {
-  font-size: 0.9rem;
-  color: #888;
-  margin: 15px 0;
-}
-
-.skills-tags {
+/* --- The Archive Cards --- */
+.archive-card {
+  background: #1a1a1a; /* Slightly lighter charcoal */
+  border: 1px solid rgba(197, 160, 89, 0.3); /* Gold border */
+  padding: 30px;
+  border-radius: 8px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  justify-content: space-between; /* Keeps the button at the bottom */
+  transition: all 0.3s ease;
+  min-height: 350px;
 }
 
-.tag {
-  background: #e1f5fe;
-  color: #0288d1;
-  padding: 4px 10px;
-  border-radius: 20px;
+.archive-card:hover {
+  transform: translateY(-10px);
+  border-color: #c5a059;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Card Content Styling --- */
+.folder-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
   font-size: 0.8rem;
 }
 
-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  background-color: #007bff;
-  color: white;
+.year {
+  color: #c5a059;
   font-weight: bold;
+}
+
+.status-badge {
+  background: rgba(197, 160, 89, 0.1);
+  color: #c5a059;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.archive-card h3 {
+  color: #c5a059; /* Old Gold */
+  font-size: 1.6rem;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.president-sub {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.doc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  color: #ffffff;
+}
+
+.doc-list li {
+  margin: 8px 0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+/* --- Buttons --- */
+.access-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c5a059;
+  background-color: transparent;
+  color: #c5a059;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s ease;
 }
 
-button.following {
-  background-color: #6c757d;
+.access-btn:hover {
+  background-color: #c5a059;
+  color: #121212;
 }
 
-button:hover {
-  opacity: 0.9;
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .document-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .document-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+  .archive-header h1 {
+    font-size: 2rem;
+  }
 }

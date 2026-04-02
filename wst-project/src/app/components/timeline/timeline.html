@@ -1,1 +1,25 @@
-<p>timeline works!</p>
+<div class="timeline-page">
+  <div class="header-section">
+    <span class="tagline">CHRONICLES OF POWER</span>
+    <h2>The Presidential Timeline</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="timeline-container">
+    <div class="main-line"></div>
+
+    <div *ngFor="let event of history; let i = index" 
+         class="timeline-item" 
+         [ngClass]="i % 2 === 0 ? 'left' : 'right'">
+      
+      <div class="content-card">
+        <span class="year-label">{{ event.year }}</span>
+        <h3>{{ event.title }}</h3>
+        <p>{{ event.description }}</p>
+        <span class="era-tag">{{ event.era }} Era</span>
+      </div>
+
+      <div class="line-node"></div>
+    </div>
+  </div>
+</div>

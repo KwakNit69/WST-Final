@@ -10,7 +10,7 @@ import { RegisterComponent } from './components/registration/registration';
 import { AuthService } from './services/auth';
 import { ProfileComponent } from './components/profile/profile';
 import { DigitalArchiveComponent } from './components/digital-archive/digital-archive';
-import { Timeline } from './components/timeline/timeline';
+import { TimelineComponent } from './components/timeline/timeline';
 
 // Functional Guard
 const authGuard = () => {
@@ -42,7 +42,7 @@ export const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'biography/:id', component: Biography },
   { path: 'digital-archive', component: DigitalArchiveComponent },
-  { path: 'timeline', component: Timeline },
+  { path: 'timeline', component: TimelineComponent },
   { path: 'profile', component: ProfileComponent },
 
 

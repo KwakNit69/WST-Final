@@ -1,22 +1,25 @@
-<div class="card-container">
-  <div class="profile-header">
-    <div class="status-indicator" [ngClass]="user.status"></div>
-    <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-img">
+<div class="archive-container">
+  <div class="archive-header">
+    <p class="tagline">NATIONAL REPOSITORY</p>
+    <h1>The Digital Archive</h1>
   </div>
 
-  <div class="profile-content">
-    <h2>{{ user.name }}</h2>
-    <p class="role">{{ user.role }}</p>
-    <p class="bio">{{ user.bio }}</p>
-
-    <div class="skills-tags">
-      <span *ngFor="let skill of user.skills" class="tag">{{ skill }}</span>
+  <div class="document-grid">
+    <div *ngFor="let item of collections" class="archive-card">
+      <div class="folder-header">
+        <span class="year">{{ item.year }}</span>
+        <span class="status-badge">{{ item.status }}</span>
+      </div>
+      
+      <div class="folder-body">
+        <h3>{{ item.title }}</h3>
+        <p class="president-sub">{{ item.president }}</p>
+        <ul class="doc-list">
+          <li *ngFor="let doc of item.docs">📄 {{ doc }}</li>
+        </ul>
+      </div>
+      
+      <button class="access-btn">ACCESS RECORDS</button>
     </div>
-  </div>
-
-  <div class="profile-footer">
-    <button (click)="toggleFollow()" [class.following]="isFollowing">
-      {{ isFollowing ? 'Unfollow' : 'Follow' }}
-    </button>
   </div>
 </div>

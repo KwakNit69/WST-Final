@@ -9,17 +9,62 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./digital-archive.css']
 })
 export class DigitalArchiveComponent {
-  user = {
-    name: 'Alex Rivera',
-    role: 'Senior UI/UX Designer',
-    bio: 'Passionate about creating intuitive digital experiences and clean code.',
-    status: 'online',
-    skills: ['Angular', 'TypeScript', 'CSS3', 'Figma']
-  };
-
-  isFollowing: boolean = false;
-
-  toggleFollow() {
-    this.isFollowing = !this.isFollowing;
-  }
+  collections = [
+    {
+      title: 'Founding of the Republic',
+      president: 'Emilio Aguinaldo',
+      year: '1899-1901',
+      docs: ['Malolos Constitution', 'Pact of Biak-na-Bato'],
+      status: 'Digitized'
+    },
+    {
+      title: 'Commonwealth Era',
+      president: 'Manuel L. Quezon',
+      year: '1935-1944',
+      docs: ['Commonwealth Act No. 1', 'EO 134 (National Language)'],
+      status: 'Restored'
+    },
+    {
+      title: 'Post-War Reconstruction',
+      president: 'Manuel Roxas / Elpidio Quirino',
+      year: '1946-1953',
+      docs: ['Treaty of Manila', 'Bell Trade Act Records'],
+      status: 'Archived'
+    },
+    {
+      title: 'Golden Age of Diplomacy',
+      president: 'Ramon Magsaysay / Carlos P. Garcia',
+      year: '1953-1961',
+      docs: ['SEATO Conference Minutes', 'Filipino First Policy'],
+      status: 'Digitized'
+    },
+    {
+      title: 'The New Society Records',
+      president: 'Ferdinand Marcos Sr.',
+      year: '1965-1986',
+      docs: ['Proclamation 1081', '1973 Constitution'],
+      status: 'Restored'
+    },
+    {
+      title: 'Democratic Restoration',
+      president: 'Corazon Aquino / Fidel V. Ramos',
+      year: '1986-1998',
+      docs: ['1987 Constitution', 'PEZA Establishment Records'],
+      status: 'Digitized'
+    },
+    {
+      title: 'Turn of the Millennium',
+      president: 'Estrada / Arroyo / Benigno Aquino III',
+      year: '1998-2016',
+      docs: ['EDSA II Archives', 'K-12 Education Reform'],
+      status: 'Archived'
+    },
+    {
+      title: 'Contemporary Governance',
+      president: 'Rodrigo Duterte / Ferdinand Marcos Jr.',
+      year: '2016-Present',
+      docs: ['Build, Build, Build Records', 'Bagong Pilipinas Manifesto'],
+      status: 'Digitized'
+    }
+  ];
 }

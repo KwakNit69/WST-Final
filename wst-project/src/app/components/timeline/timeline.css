@@ -1,0 +1,114 @@
+.timeline-page {
+  background-color: #121212;
+  color: #fff;
+  min-height: 100vh;
+  padding: 80px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.header-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #c5a059; /* Old Gold */
+  margin: 10px 0;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.main-line {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(197, 160, 89, 0.3);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 50%;
+  position: relative;
+  padding: 20px 60px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+.content-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border: 1px solid rgba(197, 160, 89, 0.1);
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.content-card:hover {
+  border-color: #c5a059;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.year-label {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c5a059;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.line-node {
+  position: absolute;
+  top: 40px;
+  width: 20px;
+  height: 20px;
+  background: #c5a059;
+  border: 4px solid #121212;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.left .line-node { right: -10px; }
+.right .line-node { left: -10px; }
+
+.era-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #c5a059;
+  opacity: 0.6;
+}
+
+.timeline-item:last-child .line-node {
+  background: #c5a059;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.8);
+  animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+  0% { transform: scale(1); box-shadow: 0 0 5px rgba(197, 160, 89, 0.5); }
+  50% { transform: scale(1.2); box-shadow: 0 0 20px rgba(197, 160, 89, 0.9); }
+  100% { transform: scale(1); box-shadow: 0 0 5px rgba(197, 160, 89, 0.5); }
+}
+
+/* Make sure the description text is readable */
+.content-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 15px 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .main-line { left: 30px; }
+  .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 70px; }
+  .line-node { left: 20px !important; }
+}
