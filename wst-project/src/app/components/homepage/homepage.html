@@ -4,20 +4,23 @@
       <p class="tagline">PRESERVING THE NATIONAL LEGACY</p>
       <h1>The Malacañang Archive</h1>
       
-      <div class="stats-container">
-        <div class="stat-item" *ngIf="stats.total > 0; else loading">
-          <span class="stat-label">National Population</span>
+      <div class="stats-container" *ngIf="stats.total > 0; else loading">
+        <div class="stat-item">
+          <span class="stat-label">NATIONAL POPULATION</span>
           <span class="stat-value">{{ stats.total | number }}</span>
         </div>
-        <div class="stat-item" *ngIf="stats.voters > 0">
-          <span class="stat-label">Eligible Voters (Est.)</span>
+
+        <div class="stat-item">
+          <span class="stat-label">ELIGIBLE VOTERS (EST.)</span>
           <span class="stat-value">{{ stats.voters | number }}</span>
         </div>
-        
-        <ng-template #loading>
-          <span class="loading-text">Retrieving National Records...</span>
-        </ng-template>
       </div>
+
+      <ng-template #loading>
+        <div class="stats-container">
+          <span class="loading-text">RECOGNIZING NATIONAL RECORDS...</span>
+        </div>
+      </ng-template>
 
       <p class="description">
         A curated digital repository chronicling the heritage of the Philippine Presidency...
@@ -26,7 +29,7 @@
 
     <div class="hero-buttons">
       <a routerLink="/list" class="btn btn-primary">EXPLORE THE COLLECTIONS</a>
-      <button class="btn btn-secondary">VIEW TIMELINE</button>
+      <button routerLink="/timeline" class="btn btn-secondary">VIEW TIMELINE</button>
     </div>
   </main>
 </div>

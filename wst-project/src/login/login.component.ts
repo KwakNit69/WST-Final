@@ -24,7 +24,7 @@ onLogin() {
   const { email, password } = this.loginForm.getRawValue();
   
   // 1. Hardcoded Admin Credentials
-  const adminEmail = 'admin@institution.gov.ph';
+  const adminEmail = 'admin@gmail.com';
   const adminPass = 'admin12345'; // Changed to 8+ chars to pass validators
 
   // 2. Get the user you just registered from the service

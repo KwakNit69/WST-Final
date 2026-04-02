@@ -24,15 +24,10 @@ export class RegisterComponent {
   // 2. Inject AuthService here
   constructor(private router: Router, private authService: AuthService) {}
 
-onSubmit() {
-  if (this.registerForm.valid) {
-    // Save to AuthService (which saves to LocalStorage)
-    this.authService.saveUser(this.registerForm.value);
-    
-    alert('Enrollment Successful. You may now sign in with your access key.');
-    this.router.navigate(['/login']);
-  } else {
-    alert('Please complete all required fields.');
+onSubmit() { 
+    if (this.registerForm.valid) {
+      this.authService.saveUser(this.registerForm.value);
+      this.router.navigate(['/login']);
+    }
   }
-}
 }

@@ -37,7 +37,7 @@ header {
 }
 
 .pillar {
-  color: #c5a059; /* A distinct gold color for the icon */
+  color: #c5a059;
   margin-right: 10px;
 }
 
@@ -186,6 +186,20 @@ footer a {
   color: #ffffff80;
   font-style: italic;
   animation: pulse 2s infinite;
+}
+
+.loading-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #c5a059; /* Your gold color */
+  letter-spacing: 2px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 @keyframes pulse {

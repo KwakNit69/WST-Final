@@ -1,10 +1,16 @@
+/* Update the global background to have depth */
 .profile-container {
   min-height: 100vh;
-  background: #0b0e14;
+  /* Shift from pure dark to a rich, cosmic blue-black */
+  background-color: #0b0e14;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(67, 97, 238, 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(35, 134, 54, 0.1) 0px, transparent 50%);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  font-family: 'Inter', system-ui, sans-serif; /* Recommended clean font */
 }
 
 .profile-card {
@@ -14,79 +20,195 @@
   border: 1px solid #30363d;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Livelier glow and depth */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 100px rgba(67, 97, 238, 0.1); /* Soft background ambiance */
+}
+
+/* Subtle hover interaction makes the card feel active */
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.7),
+    0 0 120px rgba(67, 97, 238, 0.15);
 }
 
 .card-header {
-  background: linear-gradient(135deg, #1c2128, #0b0e14);
-  padding: 40px 20px;
+  background: radial-gradient(circle at center, #1c2128 0%, #0b0e14 100%);
+  padding: 50px 20px 40px; /* Adjusted padding */
   text-align: center;
   position: relative;
-  border-bottom: 2px solid #4361ee;
+  /* The "Active Circuitry" divider */
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, #30363d 0%, #4361ee 50%, #30363d 100%) 1;
 }
 
+/* Make the access badge feel like a live security chip */
 .id-badge {
   position: absolute;
   top: 15px;
   right: 15px;
   font-size: 10px;
-  background: rgba(67, 97, 238, 0.2);
+  background: rgba(67, 97, 238, 0.1);
   color: #4361ee;
-  padding: 4px 10px;
-  border-radius: 4px;
-  border: 1px solid #4361ee;
-  letter-spacing: 1px;
+  padding: 5px 12px;
+  border-radius: 20px; /* Rounder edges for badge */
+  border: 1px solid rgba(67, 97, 238, 0.6);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(67, 97, 238, 0.3);
 }
 
+/* The heart of the "lively" look: The avatar pulsates */
 .profile-avatar {
-  width: 120px;
-  height: 120px;
+  width: 130px; /* Slightly larger */
+  height: 130px;
   margin: 0 auto;
   border-radius: 50%;
+  background-color: #161b22;
   border: 4px solid #161b22;
   overflow: hidden;
-  box-shadow: 0 0 20px #4361ee;
+  position: relative;
+  z-index: 1;
+
+  /* Layered glowing pulse effect */
+  box-shadow: 
+    0 0 20px rgba(67, 97, 238, 0.6),
+    0 0 40px rgba(67, 97, 238, 0.3);
+  
+  animation: avatarPulse 4s infinite;
 }
 
-.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+/* The pulse keyframes definition */
+@keyframes avatarPulse {
+  0% { box-shadow: 0 0 20px rgba(67, 97, 238, 0.6), 0 0 40px rgba(67, 97, 238, 0.3); }
+  50% { box-shadow: 0 0 35px rgba(67, 97, 238, 0.9), 0 0 60px rgba(67, 97, 238, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(67, 97, 238, 0.6), 0 0 40px rgba(67, 97, 238, 0.3); }
+}
 
-.card-body { padding: 30px; text-align: center; }
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Better for robot avatars */
+  padding: 10px; /* Gives the robot some space in the circle */
+}
 
-.user-name { font-size: 1.8rem; margin: 10px 0 5px; color: #ffffff; }
-.user-dept { color: #4361ee; font-weight: bold; margin-bottom: 30px; }
+.card-body { padding: 35px 30px; text-align: center; }
+
+/* Text gradients add a vibrant touch */
+.user-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 15px 0 5px;
+  color: #ffffff;
+  /* Multi-tone blue gradient for depth */
+  background: linear-gradient(135deg, #ffffff 30%, #a2b2fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-dept {
+  color: #4361ee;
+  font-weight: 700;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
 
 .info-grid {
   text-align: left;
   display: grid;
-  gap: 20px;
-  margin-bottom: 30px;
+  gap: 22px;
+  margin-bottom: 35px;
 }
 
 .info-item label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: #8b949e;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
-.info-item span { color: #c9d1d9; font-weight: 500; }
+.info-item span {
+  color: #c9d1d9;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
 
-.clearance { color: #238636 !important; font-weight: bold; }
+/* Clearance Level: Elevate from just green text to an active "APPROVED" signal */
+.clearance {
+  color: #238636 !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
-.actions { display: flex; gap: 10px; }
+/* Add a glowing approved dot next to the text */
+.clearance::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #238636;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px #238636;
+  animation: clearanceBlink 2s infinite;
+}
+
+@keyframes clearanceBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.actions { display: flex; gap: 15px; margin-top: 10px; }
 
 button {
   flex: 1;
-  padding: 12px;
-  border-radius: 6px;
+  padding: 14px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  border: none;
-  transition: 0.3s;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-edit { background: #30363d; color: white; }
-.btn-edit:hover { background: #484f58; }
+/* The standard action button (Update Credentials) */
+.btn-edit {
+  background: #21262d; /* Slightly darker than card body */
+  color: #c9d1d9;
+  border-color: #30363d;
+}
 
-.btn-logout { background: #da3633; color: white; }
-.btn-logout:hover { background: #f85149; }
+.btn-edit:hover {
+  background: #30363d;
+  color: white;
+  border-color: #8b949e;
+  transform: translateY(-2px);
+}
+
+/* The critical action button (Terminate Session) - intensified red */
+.btn-logout {
+  background: linear-gradient(135deg, #da3633, #bd2c29);
+  color: white;
+  box-shadow: 0 4px 15px rgba(218, 54, 51, 0.4);
+}
+
+.btn-logout:hover {
+  background: linear-gradient(135deg, #f85149, #da3633);
+  box-shadow: 0 6px 20px rgba(218, 54, 51, 0.6);
+  transform: translateY(-2px);
+}

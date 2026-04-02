@@ -43,11 +43,12 @@ export const routes: Routes = [
   { path: 'biography/:id', component: Biography },
   { path: 'digital-archive', component: DigitalArchiveComponent },
   { path: 'timeline', component: Timeline },
+  { path: 'profile', component: ProfileComponent },
+
 
   
   // PROTECTED ROUTES
   { path: 'homepage', component: HomepageComponent, canActivate: [authGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   
   // Fallback
   { path: '**', redirectTo: '' }

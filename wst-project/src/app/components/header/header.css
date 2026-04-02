@@ -49,3 +49,43 @@
   padding: 5px;
   outline: none;
 }
+
+
+.links-container {
+  display: flex;
+  align-items: center; /* Ensures the icon aligns vertically with text links */
+  gap: 20px;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 10px; /* Gives it a bit of space from the text links */
+}
+
+.profile-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s, background-color 0.2s;
+  border: 2px solid transparent;
+}
+
+.profile-link:hover .profile-icon {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+  border-color: #6e8efb; /* Matching the blue from your profile page */
+}
+
+/* Optional: Highlight the icon when on the profile page */
+.active-profile .profile-icon {
+  border-color: #6e8efb;
+  background-color: #6e8efb;
+  color: white;
+}
