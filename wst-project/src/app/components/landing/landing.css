@@ -9,7 +9,10 @@ html, body {
 * {
     box-sizing: border-box;
 }
-
+.landing-container {
+    /* Adding the slash tells the browser to look at the root */
+    background-image: url('/WST-Final/MALACANANG.jpg'); 
+}
 
 .main-container {
 
