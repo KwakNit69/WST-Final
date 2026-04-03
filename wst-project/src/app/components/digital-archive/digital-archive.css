@@ -1,145 +1,52 @@
-/* --- Global Component Styles --- */
-:host {
-  display: block;
-  font-family: 'Playfair Display', 'Segoe UI', serif;
-}
-
-/* --- Main Page Container --- */
-.archive-container {
-  background-color: #121212; /* Dark Archival Background */
-  padding: 60px 20px;
-  color: #ffffff; /* Global text color */
-  min-height: 100vh;
-}
-
-.archive-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.tagline {
-  color: #c5a059;
-  letter-spacing: 3px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.archive-header h1 {
-  font-size: 3rem;
-  margin: 0;
-  color: #ffffff;
-}
-
-/* --- The 3xN Grid Layout --- */
 .document-grid {
   display: grid;
-  /* Creates exactly 3 columns on desktop */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards wide */
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* --- The Archive Cards --- */
 .archive-card {
-  background: #1a1a1a; /* Slightly lighter charcoal */
-  border: 1px solid rgba(197, 160, 89, 0.3); /* Gold border */
-  padding: 30px;
+  background: #1a1a1a;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  padding: 25px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Keeps the button at the bottom */
-  transition: all 0.3s ease;
+  justify-content: space-between;
   min-height: 350px;
+  transition: transform 0.3s ease;
 }
 
 .archive-card:hover {
   transform: translateY(-10px);
   border-color: #c5a059;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-/* --- Card Content Styling --- */
-.folder-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  font-size: 0.8rem;
-}
-
-.year {
-  color: #c5a059;
-  font-weight: bold;
-}
-
-.status-badge {
-  background: rgba(197, 160, 89, 0.1);
-  color: #c5a059;
-  padding: 2px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
 }
 
 .archive-card h3 {
   color: #c5a059; /* Old Gold */
-  font-size: 1.6rem;
-  margin: 0 0 10px 0;
-  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+  margin: 10px 0;
 }
 
 .president-sub {
   color: rgba(255, 255, 255, 0.6);
   font-style: italic;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .doc-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 30px 0;
   color: #ffffff;
 }
 
-.doc-list li {
-  margin: 8px 0;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-}
-
-/* --- Buttons --- */
 .access-btn {
-  width: 100%;
-  padding: 12px;
+  background: transparent;
   border: 1px solid #c5a059;
-  background-color: transparent;
   color: #c5a059;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  padding: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.access-btn:hover {
-  background-color: #c5a059;
-  color: #121212;
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 1024px) {
-  .document-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-  }
-}
-
-@media (max-width: 768px) {
-  .document-grid {
-    grid-template-columns: 1fr; /* 1 column for mobile */
-  }
-  .archive-header h1 {
-    font-size: 2rem;
-  }
+  text-transform: uppercase;
+  font-weight: bold;
 }
