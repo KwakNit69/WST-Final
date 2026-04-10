@@ -22,22 +22,27 @@ export class LoginComponent {
   // 2. This name MUST match the (ngSubmit)="onLogin()" in your HTML
 onLogin() {
   const { email, password } = this.loginForm.getRawValue();
-  
-  // 1. Hardcoded Admin Credentials
-  const adminEmail = 'admin@gmail.com';
-  const adminPass = 'admin12345'; // Changed to 8+ chars to pass validators
 
-  // 2. Get the user you just registered from the service
+  const adminEmail = 'admin@gmail.com';
+  const adminPass = 'admin12345';
+
   const storedUser = this.authService.getUser();
 
-  console.log('Login Attempt:', email);
-
-  // 3. Logic Check: Check Admin FIRST, then check Registered User
   if (email === adminEmail && password === adminPass) {
+    // ✅ SAVE ADMIN FIRST
+    this.authService.saveUser({
+      email: adminEmail,
+      role: 'admin'
+    });
+
     alert('Access Granted: System Administrator.');
-    this.router.navigate(['/homepage']); // Ensure path matches app.routes.ts
+    this.router.navigate(['/homepage']);
   } 
-  else if (storedUser && email === storedUser.email && password === storedUser.password) {
+  else if (
+    storedUser &&
+    email === storedUser.email &&
+    password === storedUser.password
+  ) {
     alert('Access Granted: Personnel Verified.');
     this.router.navigate(['/homepage']);
   } 
